@@ -8,22 +8,19 @@ dataSources:
     source:
       address: "0x92f069cDA0c8A532D8717E8ae1e45e2CD00Bc772"
       abi: kelptoken
+      startBlock: 10829640
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - OwnershipTransferred
-        - Transfer
+        - KelpHolder
+        - Trans
+        - Creation
       abis:
         - name: kelptoken
           file: ./abis/kelptoken.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer
       file: ./src/mapping.ts

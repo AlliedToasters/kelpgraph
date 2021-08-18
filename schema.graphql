@@ -1,6 +1,17 @@
-type ExampleEntity @entity {
+type KelpHolder @entity {
   id: ID!
-  count: BigInt!
-  owner: Bytes! # address
-  spender: Bytes! # address
+}
+
+type Trans @entity {
+  id: ID!
+  from: KelpHolder!
+  to: KelpHolder!
+  amount: BigInt!
+}
+
+type Creation @entity {
+  id: ID!
+  to: KelpHolder!
+  amount: BigInt!
+  mass: BigInt!
 }
